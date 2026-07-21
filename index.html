@@ -84,4 +84,16 @@
 
   <script>
     // スマートフォン判定
-    const isMobile = /Mobi|Android|iPhone|
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    if (isMobile) {
+      // スマホの場合は直接PDFを開く（ワンクッションなし）
+      window.location.href = "QL1_Bridge_Voting_Guide.pdf";
+    } else {
+      // PCの場合は埋め込み表示
+      document.getElementById("loading-msg").style.display = "none";
+      document.getElementById("pdf-embed").style.display = "block";
+    }
+  </script>
+</body>
+</html>
