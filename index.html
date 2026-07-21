@@ -6,29 +6,57 @@
   <title>QL1 → Infinite Bridge Voting Guide</title>
   <style>
     body {
-      font-family: system-ui, -apple-system, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       max-width: 960px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 24px 16px;
       line-height: 1.6;
       background: #f8fafc;
+      color: #1e293b;
     }
-    h1 { color: #0f172a; }
     .container {
       background: white;
-      padding: 40px;
-      border-radius: 12px;
+      padding: 32px 24px;
+      border-radius: 16px;
       box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
     }
-    .pdf-container {
-      margin: 30px 0;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      overflow: hidden;
+    h1 {
+      font-size: 1.8rem;
+      color: #0f172a;
+      margin-top: 0;
+      line-height: 1.3;
     }
-    embed {
+    .desc {
+      color: #475569;
+      margin-bottom: 28px;
+    }
+    .btn {
+      display: inline-block;
+      background: #0f172a;
+      color: white;
+      text-decoration: none;
+      padding: 16px 28px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-align: center;
+      margin: 12px 0 24px;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background: #1e293b;
+    }
+    .pdf-container {
+      margin: 20px 0;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+      display: none; /* スマホでは非表示 */
+    }
+    embed, iframe {
       width: 100%;
-      height: 900px;
+      height: 85vh;
+      min-height: 700px;
       border: none;
     }
     .footer {
@@ -37,23 +65,50 @@
       color: #64748b;
       font-size: 0.9rem;
     }
+    /* PCサイズ以上で埋め込みを表示 */
+    @media (min-width: 768px) {
+      .pdf-container {
+        display: block;
+      }
+      .mobile-only {
+        display: none;
+      }
+      h1 {
+        font-size: 2.2rem;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>QL1 → Infinite Bridge Voting Guide</h1>
-   
-    <p>
+    
+    <p class="desc">
       A step-by-step guide to bridge USDT, acquire 42, and propose/vote for channels as a community.<br>
       Compiled based on publicly available screens so that anyone can follow the process themselves.
     </p>
-    <h2>📄 Guide Content</h2>
+
+    <!-- スマホ向け大きなボタン -->
+    <div class="mobile-only" style="text-align: center;">
+      <a href="QL1_Bridge_Voting_Guide.pdf" class="btn" target="_blank">
+        📄 View / Download the Guide (PDF)
+      </a>
+      <p style="font-size: 0.9rem; color: #64748b;">
+        Tap the button above to open the PDF.<br>
+        Most smartphones will display it in the browser.
+      </p>
+    </div>
+
+    <!-- PC向け埋め込み表示 -->
     <div class="pdf-container">
       <embed src="QL1_Bridge_Voting_Guide.pdf" type="application/pdf">
     </div>
-    <p style="text-align:center; color:#64748b;">
-      If the PDF does not display, please <a href="QL1_Bridge_Voting_Guide.pdf" target="_blank">download it here</a>.
+
+    <p style="text-align:center; color:#64748b; font-size: 0.95rem;">
+      If the PDF does not display, 
+      <a href="QL1_Bridge_Voting_Guide.pdf" target="_blank">download it here</a>.
     </p>
+
     <div class="footer">
       <p>Created by a community member based on publicly available information</p>
       <p>Feel free to leave comments or DM with any questions or feedback!</p>
