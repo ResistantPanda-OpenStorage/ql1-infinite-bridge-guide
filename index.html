@@ -30,30 +30,13 @@
       color: #475569;
       margin-bottom: 28px;
     }
-    .btn {
-      display: inline-block;
-      background: #0f172a;
-      color: white;
-      text-decoration: none;
-      padding: 16px 28px;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      text-align: center;
-      margin: 12px 0 24px;
-      transition: background 0.2s;
-    }
-    .btn:hover {
-      background: #1e293b;
-    }
     .pdf-container {
       margin: 20px 0;
       border: 1px solid #e2e8f0;
       border-radius: 12px;
       overflow: hidden;
-      display: none; /* スマホでは非表示 */
     }
-    embed, iframe {
+    embed {
       width: 100%;
       height: 85vh;
       min-height: 700px;
@@ -65,17 +48,10 @@
       color: #64748b;
       font-size: 0.9rem;
     }
-    /* PCサイズ以上で埋め込みを表示 */
-    @media (min-width: 768px) {
-      .pdf-container {
-        display: block;
-      }
-      .mobile-only {
-        display: none;
-      }
-      h1 {
-        font-size: 2.2rem;
-      }
+    .loading {
+      text-align: center;
+      padding: 60px 20px;
+      color: #64748b;
     }
   </style>
 </head>
@@ -88,25 +64,16 @@
       Compiled based on publicly available screens so that anyone can follow the process themselves.
     </p>
 
-    <!-- スマホ向け大きなボタン -->
-    <div class="mobile-only" style="text-align: center;">
-      <a href="QL1_Bridge_Voting_Guide.pdf" class="btn" target="_blank">
-        📄 View / Download the Guide (PDF)
-      </a>
-      <p style="font-size: 0.9rem; color: #64748b;">
-        Tap the button above to open the PDF.<br>
-        Most smartphones will display it in the browser.
-      </p>
-    </div>
-
-    <!-- PC向け埋め込み表示 -->
-    <div class="pdf-container">
-      <embed src="QL1_Bridge_Voting_Guide.pdf" type="application/pdf">
+    <div class="pdf-container" id="pdf-area">
+      <div class="loading" id="loading-msg">
+        Loading the guide...
+      </div>
+      <embed id="pdf-embed" src="QL1_Bridge_Voting_Guide.pdf" type="application/pdf" style="display:none;">
     </div>
 
     <p style="text-align:center; color:#64748b; font-size: 0.95rem;">
       If the PDF does not display, 
-      <a href="QL1_Bridge_Voting_Guide.pdf" target="_blank">download it here</a>.
+      <a href="QL1_Bridge_Voting_Guide.pdf" target="_blank">open it here</a>.
     </p>
 
     <div class="footer">
@@ -114,5 +81,7 @@
       <p>Feel free to leave comments or DM with any questions or feedback!</p>
     </div>
   </div>
-</body>
-</html>
+
+  <script>
+    // スマートフォン判定
+    const isMobile = /Mobi|Android|iPhone|
