@@ -17,5 +17,5 @@ Click the link above to view the PDF directly in your browser.
 This document provides a clear, step-by-step explanation of the process for bridging from QL1 to Infinite Bridge, including how to submit proposals and maintain a channel.
 
 ---
-
+Updated.
 © ResistantPanda-OpenStorage
